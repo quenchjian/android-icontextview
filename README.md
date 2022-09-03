@@ -3,7 +3,7 @@
 Enhanced TextView to support set compound drawable size directly and respect drawablePadding attribute.
 
 ## Sample
-![](art/sample.png)
+<img src="art/sample.png" width="50%" height="50%" />
 
 ## Sample Usage
 
