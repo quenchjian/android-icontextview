@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <me.quenchjian.android.icontextview.IconTextView
+        android:id="@+id/icon_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/black"
@@ -22,6 +23,7 @@
         tools:ignore="HardcodedText" />
 
     <me.quenchjian.android.icontextview.IconTextView
+        android:id="@+id/icon_assign_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -38,6 +40,7 @@
         tools:ignore="HardcodedText" />
 
     <me.quenchjian.android.icontextview.IconTextView
+        android:id="@+id/icon_align_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

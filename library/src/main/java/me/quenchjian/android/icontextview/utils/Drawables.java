@@ -15,7 +15,7 @@ public final class Drawables {
   @Nullable
   public static Drawable wrap(@Nullable Drawable drawable) {
     if (drawable == null) return null;
-    if (drawable.getBounds() == ZERO_BOUNDS) {
+    if (ZERO_BOUNDS.equals(drawable.getBounds())) {
       drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
     }
     return DrawableCompat.wrap(drawable);
@@ -24,7 +24,7 @@ public final class Drawables {
   @Nullable
   public static Drawable scale(@Nullable Drawable drawable, int targetWidth, int targetHeight) {
     if (drawable == null) return null;
-    if (targetWidth < 0 && targetHeight < 0) return drawable;
+    if (targetWidth <= 0 && targetHeight <= 0) return drawable;
 
     Rect bounds = drawable.getBounds();
     int w = bounds.width();
@@ -46,13 +46,13 @@ public final class Drawables {
 
   public static int getWidth(Drawable drawable) {
     return drawable == null
-        ? 0 : drawable.getBounds() != ZERO_BOUNDS
+        ? 0 : !ZERO_BOUNDS.equals(drawable.getBounds())
         ? drawable.getBounds().width() : drawable.getIntrinsicWidth();
   }
 
   public static int getHeight(Drawable drawable) {
     return drawable == null
-        ? 0 : drawable.getBounds() != ZERO_BOUNDS
+        ? 0 : !ZERO_BOUNDS.equals(drawable.getBounds())
         ? drawable.getBounds().height() : drawable.getIntrinsicHeight();
   }
 
