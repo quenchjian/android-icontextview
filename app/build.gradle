@@ -3,6 +3,7 @@ plugins {
 }
 
 android {
+  namespace 'me.quenchjian.icontextview.sample'
   compileSdk 32
 
   defaultConfig {

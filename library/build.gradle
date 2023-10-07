@@ -3,13 +3,12 @@ plugins {
 }
 
 android {
+  namespace 'me.quenchjian.android.icontextview'
   compileSdk 32
 
   defaultConfig {
     minSdk 19
     targetSdk 32
-    versionCode 1
-    versionName "1.0.0"
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles "consumer-rules.pro"
