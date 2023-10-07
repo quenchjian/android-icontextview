@@ -48,7 +48,7 @@
         android:drawablePadding="8dp"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Respect drawablePadding attirbute"
+        android:text="Respect drawablePadding attribute"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:drawableStartCompat="@drawable/ic_baseline_access_time_24"

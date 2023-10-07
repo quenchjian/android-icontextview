@@ -13,8 +13,8 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 
 import java.util.Objects;
 
@@ -28,7 +28,6 @@ public class IconTextView extends AppCompatTextView {
   private int cachedPosition = 0;
   private int iconWidth;
   private int iconHeight;
-  private boolean isRelative;
 
   public IconTextView(@NonNull Context context) {
     this(context, null);
@@ -50,6 +49,10 @@ public class IconTextView extends AppCompatTextView {
       iconWidth = size;
       iconHeight = size;
     }
+    boolean isRelative = a.hasValue(R.styleable.IconTextView_android_drawableStart)
+        || a.hasValue(R.styleable.IconTextView_drawableStartCompat)
+        || a.hasValue(R.styleable.IconTextView_android_drawableEnd)
+        || a.hasValue(R.styleable.IconTextView_drawableEndCompat);
     a.recycle();
     if (iconWidth > 0 || iconHeight > 0) {
       if (isRelative) {
@@ -115,7 +118,7 @@ public class IconTextView extends AppCompatTextView {
    * @param res icon resource id to set
    */
   public void setStartIcon(@DrawableRes int res) {
-    setStartIcon(ContextCompat.getDrawable(getContext(), res));
+    setStartIcon(AppCompatResources.getDrawable(getContext(), res));
   }
 
   @Nullable
@@ -138,7 +141,7 @@ public class IconTextView extends AppCompatTextView {
    * @param res icon resource id to set
    */
   public void setTopIcon(@DrawableRes int res) {
-    setTopIcon(ContextCompat.getDrawable(getContext(), res));
+    setTopIcon(AppCompatResources.getDrawable(getContext(), res));
   }
 
   @Nullable
@@ -161,7 +164,7 @@ public class IconTextView extends AppCompatTextView {
    * @param res icon resource id to set
    */
   public void setEndIcon(@DrawableRes int res) {
-    setEndIcon(ContextCompat.getDrawable(getContext(), res));
+    setEndIcon(AppCompatResources.getDrawable(getContext(), res));
   }
 
   @Nullable
@@ -184,13 +187,12 @@ public class IconTextView extends AppCompatTextView {
    * @param res icon resource id to set
    */
   public void setBottomIcon(@DrawableRes int res) {
-    setBottomIcon(ContextCompat.getDrawable(getContext(), res));
+    setBottomIcon(AppCompatResources.getDrawable(getContext(), res));
   }
 
   @Override
   public void setCompoundDrawables(@Nullable Drawable left, @Nullable Drawable top,
       @Nullable Drawable right, @Nullable Drawable bottom) {
-    isRelative = false;
     super.setCompoundDrawables(
         Drawables.scale(Drawables.wrap(left), iconWidth, iconHeight),
         Drawables.scale(Drawables.wrap(top), iconWidth, iconHeight),
@@ -201,7 +203,6 @@ public class IconTextView extends AppCompatTextView {
   @Override
   public void setCompoundDrawablesRelative(@Nullable Drawable start, @Nullable Drawable top,
       @Nullable Drawable end, @Nullable Drawable bottom) {
-    isRelative = start != null || top != null || end != null || bottom != null;
     super.setCompoundDrawablesRelative(
         Drawables.scale(Drawables.wrap(start), iconWidth, iconHeight),
         Drawables.scale(Drawables.wrap(top), iconWidth, iconHeight),

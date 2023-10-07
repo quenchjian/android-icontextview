@@ -4,5 +4,9 @@
         <attr name="iconWidth" format="dimension" />
         <attr name="iconHeight" format="dimension" />
         <attr name="iconSize" format="dimension" />
+        <attr name="android:drawableStart" />
+        <attr name="android:drawableEnd" />
+        <attr name="drawableStartCompat" format="reference" />
+        <attr name="drawableEndCompat" format="reference" />
     </declare-styleable>
 </resources>
